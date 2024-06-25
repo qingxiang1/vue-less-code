@@ -3,34 +3,36 @@
 <template>
   <div class="preview-container">
     <div class="component-list-container">
-      <div id="preview-component-list" class="component-list">
-        <div id="component-list-placeholder" class="component-item-placeholder">
-          占位符
-        </div>
-        <!-- <draggable
+      <div class="component-list">
+        <draggable
           :list="state.components"
           :force-fallback="true"
           :delay="1"
           :fallbackTolerance="3"
           ghost-class="ghost-class"
           drag-class="drag-class"
-        > -->
-        <div
-          v-for="item in state.components"
-          :key="item._id"
-          class="component-list-item"
-          @click.stop="selectComponent(item._id, true)"
+          id="preview-component-list"
+          class="component-list-draggable"
         >
-          <div class="component-item-tips"></div>
-          <div class="component-item-wrapper">
-            <component :is="item.componentName" :data="item" />
+          <div id="component-list-placeholder" class="component-item-placeholder">
+            占位符
           </div>
           <div
-            v-if="state.currentComponentId === item._id"
-            class="component-selected-box"
-          />
-        </div>
-        <!-- </draggable> -->
+            v-for="item in state.components.filter((item) => item && item._id)"
+            :key="item._id"
+            class="component-list-item"
+            @click.stop="selectComponent(item._id, true)"
+          >
+            <div class="component-item-tips"></div>
+            <div class="component-item-wrapper">
+              <component :is="item.componentName" :data="item" />
+            </div>
+            <div
+              v-if="state.currentComponentId === item._id"
+              class="component-selected-box"
+            />
+          </div>
+        </draggable>
       </div>
     </div>
   </div>
@@ -78,6 +80,8 @@ const route = useRoute();
  * @param data
  */
 function onCreateComponent(data) {
+  if (!data) return;
+
   state.components.push(data);
 }
 
@@ -212,6 +216,8 @@ async function dragEnd() {
       }
     );
 
+    if (!newComponent) return false;
+
     if (
       state.components.length === 0 ||
       state.components.length === dragMoveIndex.value
@@ -235,6 +241,7 @@ async function dragEnd() {
 
 async function onSyncData() {
   const rowData = await findLasted(route.params.id);
+
   if (rowData?.components?.length) {
     state.components = rowData.components;
   } else {
@@ -317,6 +324,10 @@ onMounted(() => {
   min-height: 800px;
   border: 1px solid @border-color;
   background-color: @white;
+}
+
+.component-list-draggable {
+  height: 100%;
 }
 
 .component-item-wrapper {

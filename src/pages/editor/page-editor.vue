@@ -36,6 +36,7 @@ const createComponent = async ({ tool, index }) => {
   }
 
   const newObj = Object.assign({}, { ...tool.componentSchema, _id: getUuid(2) });
+
   if (!index && index !== 0) {
     state.components.push(newObj);
   } else {
@@ -52,6 +53,7 @@ const createComponent = async ({ tool, index }) => {
 
 async function onSyncData(id) {
   const rowData = await findLasted(route.params.id);
+
   if (rowData?.components?.length) {
     state.components = rowData.components;
     if (id) onSelectComponent(id);

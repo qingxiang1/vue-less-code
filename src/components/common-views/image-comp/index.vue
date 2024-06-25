@@ -1,7 +1,10 @@
 /** * @description: 图片组件 */
 
 <template>
-  <div class="image" :style="_style">图片图片</div>
+  <div class="image">
+    <img v-if="data?.settings?.content" :src="data.settings.content" />
+    <div v-else>图片</div>
+  </div>
 </template>
 
 <script setup>
@@ -13,8 +16,11 @@ const _style = ref(props?.data?.settings?.style);
 
 <style lang="less" scoped>
 .image {
+  padding: 4px 10px;
   width: 100%;
   min-height: 46px;
   user-select: none; // 禁止选中文字
+  display: flex;
+  align-items: center;
 }
 </style>
