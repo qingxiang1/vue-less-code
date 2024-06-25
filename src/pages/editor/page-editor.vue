@@ -95,9 +95,6 @@ const updateConfig = (key, value) => {
  */
 function onSelectComponent(id) {
   state.currentComponentId = id;
-
-  console.log("111 >>> :", id, toRaw(state.components));
-
   for (const item of state.components) {
     if (item._id === id) {
       currentComponent.value = item;
@@ -141,7 +138,9 @@ onUnmounted(() => {
 <style lang="less" scoped>
 .editor-content-basic {
   width: 100%;
-  height: 100%;
+  // height: 100%;
+  height: calc(100vh - 64px);
   display: flex;
+  overflow: hidden;
 }
 </style>

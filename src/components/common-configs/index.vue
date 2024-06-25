@@ -4,10 +4,12 @@
 
 <script>
 import TitleText from "./title-text/index.vue";
+import Image from "./image-comp/index.vue";
 
 export default {
   components: {
     TitleText,
+    Image,
   },
 };
 </script>

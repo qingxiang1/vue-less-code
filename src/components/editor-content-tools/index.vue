@@ -52,6 +52,26 @@ const toolList = [
       },
     },
   },
+  {
+    icon: "/public/images/picture.svg",
+    title: "图片",
+    limit: 10,
+    componentName: "Image",
+    componentSchema: {
+      name: "图片",
+      componentName: "Image",
+      configName: "ImageConfig",
+      value: "文本内容",
+      settings: {
+        content: "", // 图片 url
+        style: {
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        },
+      },
+    },
+  },
 ];
 
 /**
@@ -148,6 +168,11 @@ function handleDragEnd(event) {
   height: 100%;
   padding: 10px;
   border-right: 1px solid @border-color;
+  background-color: @white;
+}
+
+.content-tools-inner {
+  display: flex;
 }
 
 .tools-inner-card {

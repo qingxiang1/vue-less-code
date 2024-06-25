@@ -38,6 +38,8 @@
 
 <script>
 import TitleText from "@/components/common-views/title-text/index.vue";
+import Image from "@/components/common-views/image-comp/index.vue";
+
 import { VueDraggableNext } from "vue-draggable-next";
 import { setObjAttr, getUuid } from "@/utils/utils";
 import { addPageOperation, findLasted } from "@/db";
@@ -53,6 +55,7 @@ import { addPageOperation, findLasted } from "@/db";
 export default {
   components: {
     TitleText,
+    Image,
     Draggable: VueDraggableNext,
   },
 };
@@ -250,7 +253,7 @@ async function recordOperation() {
 
     await addPageOperation(route.params.id, step, components);
   } catch (error) {
-    console.log("error :", error);
+    console.log(error);
   }
 }
 

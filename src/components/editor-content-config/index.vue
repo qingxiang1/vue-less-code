@@ -20,6 +20,7 @@ const props = defineProps(["data"]);
   height: 100%;
   padding: 10px;
   border-left: 1px solid @border-color;
+  background-color: @white;
 }
 
 .content-config-title {
