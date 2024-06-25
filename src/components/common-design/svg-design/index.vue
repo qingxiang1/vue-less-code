@@ -19,7 +19,7 @@ onMounted(async () => {
 </script>
 
 <style lang="less" scoped>
-.svg-design-icon /deep/ svg {
+.svg-design-icon :deep(svg) {
   width: 32px;
   height: 32px;
 }

@@ -23,8 +23,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+  background-color: @white;
+  border-bottom: 1px solid @border-color;
 }
 
 .page-editor-back-a {
@@ -41,19 +41,19 @@
 
 .editor-header-btn {
   padding: 4px 8px;
-  border: 1px solid #eee;
-  border-radius: 4px;
+  border: 1px solid @border-color;
+  border-radius: @border-radius-4;
   cursor: pointer;
   &:hover {
-    background-color: #eee;
+    background-color: @border-color;
   }
 }
 
 .editor-header-btn.primary {
   background-color: @primary-color;
-  color: #fff;
+  color: @white;
   &:hover {
-    background-color: @primary-color-hover;
+    background-color: @primary-8;
   }
 }
 </style>

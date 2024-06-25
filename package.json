@@ -36,6 +36,7 @@
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
     "lint-staged": "^15.2.7",
+    "lodash": "^4.17.21",
     "prettier": "^3.3.2",
     "stylelint": "^16.6.1",
     "stylelint-config-recess-order": "^5.0.1",
@@ -45,8 +46,11 @@
     "vite-plugin-eslint": "^1.8.1"
   },
   "dependencies": {
+    "dexie": "^4.0.7",
+    "element-plus": "^2.7.5",
     "eventemitter3": "^5.0.1",
     "vue": "^3.4.29",
+    "vue-draggable-next": "^2.2.1",
     "vue-router": "^4.3.3"
   }
 }
