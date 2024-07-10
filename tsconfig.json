@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strict": false,
+    "types": ["element-plus/global"]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [],
+}
